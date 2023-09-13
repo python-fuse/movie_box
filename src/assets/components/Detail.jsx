@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Detail.css";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import Genre from "./Genre";
 
@@ -35,9 +35,14 @@ const Detail = () => {
   return (
     <>
       {movie === null ? (
-        <div className="loading mx-auto"></div>
+        <div className="loading mt-52 mx-auto"></div>
       ) : (
-        <div>
+        <div className="mt-3 ml-2">
+          <Link to={"/"}>
+            <p className="text-red p-2 border-2 w-fit border-red-400 rounded-xl hover:bg-red-300 duration-300">
+              Home
+            </p>
+          </Link>
           <div>
             <img
               className="poster "
@@ -48,17 +53,22 @@ const Detail = () => {
           <div className="main">
             <div className=" flex justify-between items-center">
               <div className="title flex ">
-                <div className="font-roboto text-2xl">
-                  <p data-testid="movie-tite">{movie?.title}</p> ·{" "}
-                  <p data-testid="movie-release_date">
-                    {movie?.release_date.slice(0, 4)}
-                  </p>{" "}
-                  · <p data-testid="movie-runtime">{movie?.runtime}m</p>
+                <div className="font-roboto flex justify-around w-3/4 text-2xl">
+                  <p>
+                    <span data-testid="movie-tite font-cinzel">
+                      {movie?.title}
+                    </span>{" "}
+                    ·{" "}
+                    <span data-testid="movie-release_date">
+                      {movie?.release_date.slice(0, 4)}
+                    </span>{" "}
+                    · <span data-testid="movie-runtime">{movie?.runtime}m</span>
+                  </p>
                 </div>
 
                 {genres}
               </div>
-              <p>
+              <p className="text-sm font-cursive">
                 {movie.vote_average}/10 | {movie.popularity}
               </p>
             </div>
@@ -67,17 +77,6 @@ const Detail = () => {
                 <p data-testid="movie-overview" className="mb-8">
                   {movie?.overview}
                 </p>
-                <div className="flex flex-col justify-evenly h-full credits">
-                  <p>
-                    Director: <span>Masashi Kishimoto</span>{" "}
-                  </p>
-                  <p>
-                    Writers: <span>Masashi Kishimoto</span>{" "}
-                  </p>
-                  <p>
-                    Stars: <span>Masashi Kishimoto</span>
-                  </p>
-                </div>
               </div>
               <div className="side">
                 <button className="w-52 p-2 rounded-md  mb-2 border-none bg-pink-800 border-2">
