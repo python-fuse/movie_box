@@ -1,0 +1,28 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+
+p {
+  object-fit: contain;
+}
+@media (max-width: 768px) {
+  .Search {
+    width: 80%;
+    font-size: smaller;
+    background-color: transparent;
+    border-radius: 0;
+  }
+  .title {
+    font-size: larger;
+  }
+  .nav {
+    align-items: center;
+    justify-content: space-between;
+  }
+  .desc {
+    width: 100%;
+    color: gold;
+  }
+}

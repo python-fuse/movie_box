@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* src/index.css or your custom CSS/SCSS file */
+
+body{
+    background-color: #121212;
+}
+.loading{
+    height: 20px;
+    width: 70px;
+    animation-name:load;
+    animation-timing-function: ease-in-out;
+    animation-duration: .7s;
+    animation-iteration-count: infinite;
+    border-radius: 2rem;
+  }
+  @keyframes load{
+    from{
+      background-color: purple;
+      transform: rotate(0deg);
+    }
+    to{
+      transform: rotate(360deg);
+      background-color: gold;
+    }
+  }
