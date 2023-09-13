@@ -6,16 +6,18 @@ const Header = ({ setSearch, search, loading, setLoading }) => {
   const [banner, setBanner] = useState([]);
   const [query, setQuery] = useState("");
 
+  // fetching a random movie to show as banner
   useEffect(() => {
     const fetchTopMovies = async () => {
       try {
         const apiKey = "34d8f01db1f0d5bfbd1c83af61a58db4";
         const response = await axios.get(
-          `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=4`
+          `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=2`
         );
 
         if (response.data.results) {
           setBanner(
+            // the randomization algorithm
             response.data.results[
               Math.floor(Math.random() * response.data.results.length - 1)
             ]
@@ -29,6 +31,7 @@ const Header = ({ setSearch, search, loading, setLoading }) => {
   }, [search]);
   const fetchQuery = async (p) => {
     try {
+      // also setting loading to true so that the mainpage will know we are try to search
       setLoading(true);
       const apiKey = "34d8f01db1f0d5bfbd1c83af61a58db4";
       const response = await axios.get(
@@ -78,9 +81,9 @@ const Header = ({ setSearch, search, loading, setLoading }) => {
               Login
             </button>
           </div>
-          <div className="desc mb-10 px-5  mt-10 text-gold font-sans w-3/4">
+          <div className="desc  mb-10 px-5  mt-10 text-gold font-sans w-3/4">
             <h1 className="text-3xl mb-1 ">{banner?.title}</h1>
-            <p className="overview text-xs w-2/3 pl-2">{banner?.overview}</p>
+            <p className="overview text-white text-xs w-2/3 pl-2">{banner?.overview}</p>
             <button className="text-white ml-2 rounded font-bold bg-red-600 hover:bg-red-700 duration 300 p-2 mt-2">
               Watch Trailer
             </button>

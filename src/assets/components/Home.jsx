@@ -5,6 +5,7 @@ import axios from "axios";
 import Main from "./MainPage";
 
 function Home() {
+  //hooks to decide and store data
   const [topMovies, setTopMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -12,10 +13,12 @@ function Home() {
   useEffect(() => {
     const fetchTopMovies = async () => {
       try {
+        //fetch movie and slice out onl the top 10
         setLoading(true);
         const apiKey = "34d8f01db1f0d5bfbd1c83af61a58db4";
         const response = await axios.get(
-          `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`,{timeout:5000}
+          `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`,
+          { timeout: 5000 }
         );
 
         if (response.data.results) {
@@ -23,13 +26,14 @@ function Home() {
           setLoading(false);
         }
       } catch (error) {
-        setLoading(false)
+        setLoading(false);
         console.error("Error fetching top movies:", error);
       }
     };
     fetchTopMovies();
   }, []);
   const ErrorBox = () => {
+    //errorBox to appear after timeout
     return (
       <div className="h-32 w-52">
         <p className="text-error text-2xl">
@@ -47,6 +51,7 @@ function Home() {
           setLoading={setLoading}
           search={topMovies}
         />
+        {/* Basedon the hooks we decide if its loading or theres an error, then show relevant components */}
         {loading ? (
           <div className="loading mx-auto"></div>
         ) : error ? (

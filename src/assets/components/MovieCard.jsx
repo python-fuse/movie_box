@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 
 const MovieCard = ({ movie }) => {
   return (
-    <div className="card rounded-t-sm" data-testid="movie-card">
+    // recieve movie via props and show it on a card
+    <div className="card rounded-t-sm shadow-lg shadow-gray-950" data-testid="movie-card">
       <img
         data-testid="movie-poster"
         src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}

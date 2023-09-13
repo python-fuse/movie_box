@@ -8,7 +8,7 @@ const Detail = () => {
   const [movie, setMovie] = useState(null);
 
   const params = useParams();
-
+  // fetching the detail info using id from the route
   useEffect(() => {
     const fetchDetail = async (p) => {
       try {
@@ -27,12 +27,13 @@ const Detail = () => {
     console.log(params);
     fetchDetail(params.id);
   }, [params]);
-
+  // mapping throgh the genres to dynamically create the genre buttons
   const genres = movie?.genres.map((genre) => {
     return <Genre genre={genre.name} />;
   });
 
   return (
+    // deciding where to show the loading animation orthe detail
     <>
       {movie === null ? (
         <div className="loading mt-52 mx-auto"></div>
@@ -55,10 +56,7 @@ const Detail = () => {
               <div className="title flex ">
                 <div className="font-roboto flex justify-around w-3/4 text-2xl">
                   <p>
-                    <span data-testid="movie-tite font-cinzel">
-                      {movie?.title}
-                    </span>{" "}
-                    ·{" "}
+                    <span data-testid="movie-title">{movie?.title}</span> ·{" "}
                     <span data-testid="movie-release_date">
                       {movie?.release_date.slice(0, 4)}
                     </span>{" "}

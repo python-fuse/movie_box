@@ -8,7 +8,7 @@ function App() {
   return (
     <Router>
       <div>
-        
+        {/*  Created my routes here Using react-router */}
         <Routes>
           <Route exact path="/" element={<Home/>} />
           <Route path="/movie/:id" element={<Detail/>} />
