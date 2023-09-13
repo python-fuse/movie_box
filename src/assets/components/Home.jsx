@@ -1,5 +1,4 @@
 import "../../tailwind.css";
-import "@fontsource/Cinzel"; // Defaults to weight 400.
 import Header from "./Header";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
@@ -16,7 +15,7 @@ function Home() {
         setLoading(true);
         const apiKey = "34d8f01db1f0d5bfbd1c83af61a58db4";
         const response = await axios.get(
-          `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`
+          `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`,{timeout:5000}
         );
 
         if (response.data.results) {
@@ -24,6 +23,7 @@ function Home() {
           setLoading(false);
         }
       } catch (error) {
+        setLoading(false)
         console.error("Error fetching top movies:", error);
       }
     };
