@@ -1,5 +1,5 @@
 import "../../tailwind.css";
-
+import "@fontsource/Cinzel"; // Defaults to weight 400.
 import Header from "./Header";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
@@ -8,6 +8,7 @@ import Main from "./MainPage";
 function Home() {
   const [topMovies, setTopMovies] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchTopMovies = async () => {
@@ -19,7 +20,7 @@ function Home() {
         );
 
         if (response.data.results) {
-          setTopMovies(response.data.results.slice(0,10));
+          setTopMovies(response.data.results.slice(0, 10));
           setLoading(false);
         }
       } catch (error) {
@@ -28,7 +29,15 @@ function Home() {
     };
     fetchTopMovies();
   }, []);
-
+  const ErrorBox = () => {
+    return (
+      <div className="h-32 w-52">
+        <p className="text-error text-2xl">
+          There was an error fetching the movie Error:{error}
+        </p>
+      </div>
+    );
+  };
   return (
     <>
       <div className="">
@@ -40,6 +49,8 @@ function Home() {
         />
         {loading ? (
           <div className="loading mx-auto"></div>
+        ) : error ? (
+          <ErrorBox />
         ) : (
           <>
             <div
