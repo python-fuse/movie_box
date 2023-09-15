@@ -58,7 +58,8 @@ const Detail = () => {
                   <p>
                     <span data-testid="movie-title">{movie?.title}</span> ·{" "}
                     <span data-testid="movie-release_date">
-                      {movie?.release_date.slice(0, 4)}
+                   {movie ? new Date(movie.release_date).toUTCString() : ""}
+   
                     </span>{" "}
                     · <span data-testid="movie-runtime">{movie?.runtime}m</span>
                   </p>
