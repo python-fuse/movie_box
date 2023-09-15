@@ -47,12 +47,12 @@ const Detail = () => {
           <div>
             <img
               className="poster "
-              src={`https://image.tmdb.org/t/p/w500/${movie?.backdrop_path}`}
+              src={`https://image.tmdb.org/t/p/w1280/${movie?.backdrop_path}`}
             />
           </div>
 
           <div className="main">
-            <div className=" flex justify-between items-center">
+            <div className=" flex md:flex-column justify-between items-center">
               <div className="title flex ">
                 <div className="font-roboto flex justify-around w-3/4 text-2xl">
                   <p>
