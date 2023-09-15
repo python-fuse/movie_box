@@ -52,7 +52,7 @@ const Detail = () => {
           </div>
 
           <div className="main">
-            <div className=" flex md:flex-col justify-between items-center">
+            <div className=" flex justify-between items-center">
               <div className="title flex ">
                 <div className="font-roboto flex justify-around w-3/4 md:text-sm text-2xl">
                   <p>
@@ -71,7 +71,7 @@ const Detail = () => {
                 {movie.vote_average}/10 | {movie.popularity}
               </p>
             </div>
-            <div className="flex md:text-sm justify-between">
+            <div className="flex sm:text-sm sm:flex-col justify-between">
               <div className="desc mt-4 ">
                 <p data-testid="movie-overview" className="mb-8">
                   {movie?.overview}
