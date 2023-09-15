@@ -83,7 +83,7 @@ const Header = ({ setSearch, search, loading, setLoading }) => {
           </div>
           <div className="desc  mb-10 px-5  mt-10 text-gold font-sans w-3/4">
             <h1 className="text-3xl mb-1 ">{banner?.title}</h1>
-            <p className="overview text-white text-xs w-3/4 h-20 pl-2">{banner ?banner.overview.slice(0,120):""}...</p>
+            <p className="overview text-white text-xs w-3/4 h-20 pl-2">{banner.overview}</p>
             <button className="text-white ml-2 rounded font-bold bg-red-600 hover:bg-red-700 duration 300 p-2 mt-2">
               Watch Trailer
             </button>
