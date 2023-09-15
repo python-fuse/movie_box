@@ -55,7 +55,7 @@ const Header = ({ setSearch, search, loading, setLoading }) => {
       <header
         className="header mb-10 pb-3"
         style={{
-          backgroundImage: `url(https://image.tmdb.org/t/p/w500/${banner?.backdrop_path})`,
+          backgroundImage: `url(https://image.tmdb.org/t/p/w1280/${banner?.backdrop_path})`,
           backgroundOpacity: 0.5,
           width: "100%",
           height: 350,
