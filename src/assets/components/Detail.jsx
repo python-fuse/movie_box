@@ -52,7 +52,7 @@ const Detail = () => {
           </div>
 
           <div className="main">
-            <div className=" flex md:flex-column justify-between items-center">
+            <div className=" flex md:flex-col justify-between items-center">
               <div className="title flex ">
                 <div className="font-roboto flex justify-around w-3/4 text-2xl">
                   <p>
