@@ -17,12 +17,12 @@ function Home() {
         setLoading(true);
         const apiKey = "34d8f01db1f0d5bfbd1c83af61a58db4";
         const response = await axios.get(
-          `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`,
+          `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`,
           { timeout: 5000 }
         );
 
         if (response.data.results) {
-          setTopMovies(response.data.results.slice(0, 10));
+          setTopMovies(response.data.results);
           setLoading(false);
         }
       } catch (error) {
