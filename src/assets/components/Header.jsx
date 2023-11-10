@@ -12,7 +12,7 @@ const Header = ({ setSearch, search, loading, setLoading }) => {
       try {
         const apiKey = "34d8f01db1f0d5bfbd1c83af61a58db4";
         const response = await axios.get(
-          `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=2`
+          `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&sort_by=popularity.desc&page=1`
         );
 
         if (response.data.results) {
